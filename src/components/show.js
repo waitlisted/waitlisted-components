@@ -26,7 +26,6 @@ class WaitlistedShow extends Component {
     let url = UrlParse(document.location, true)
 
     if ((this.submitted && url.query && url.query.id) || (!this.submitted && (!url.query || (url.query && !url.query.id)))) {
-      console.log("HELLO!!!!", this.submitted)
       return (<slot />)
     }
     return null
