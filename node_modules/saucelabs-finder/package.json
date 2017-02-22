@@ -1,0 +1,43 @@
+{
+  "name": "saucelabs-finder",
+  "version": "0.0.0-alpha",
+  "description": "SauceLabs webdriver finder",
+
+  "scripts": {
+    "start": "jasminetea --watch --timeout 5000",
+    "test": "jasminetea --cover --report --timeout 5000",
+
+    "prepublish": "node -e \"if(process.env.TRAVIS){}else{process.exit(1)}\" && npm run compile || echo skip prepublish",
+    "compile": "coffee --bare --compile index.coffee",
+    "postcompile": "coffee --output lib --bare --compile src"
+  },
+  "config": {
+    "ghooks": {
+      "pre-commit": "npm run test"
+    }
+  },
+
+  "dependencies": {
+    "lodash": "^3.9.3"
+  },
+  "devDependencies": {
+    "ghooks": "^0.3.2",
+    "jasminetea": "^0.2.1-alpha.2",
+    "saucelabs": "^0.1.1",
+    "yamljs": "^0.2.3"
+  },
+
+  "keywords": [
+    "saucelabs"
+  ],
+  "author": "59naga <i59naga@icloud.com> (http://berabou.me/)",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/59naga/saucelabs-finder.git"
+  },
+  "bugs": {
+    "url": "https://github.com/59naga/saucelabs-finder/issues"
+  },
+  "homepage": "https://github.com/59naga/saucelabs-finder#readme"
+}
