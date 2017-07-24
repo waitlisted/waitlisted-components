@@ -1,6 +1,6 @@
 import { Component, h, prop } from 'skatejs';
 const React = { createElement: h };
-
+import UrlParse from 'url-parse';
 const sym = Symbol();
 
 class WaitlistedForm extends Component {
@@ -24,6 +24,7 @@ class WaitlistedForm extends Component {
   }
 
   renderCallback () {
+    let url = UrlParse(document.location, true)
     let content = this.innerHTML.trim()
     let nameBlock = null
     if (this.site.ask_name) {
@@ -35,6 +36,14 @@ class WaitlistedForm extends Component {
 
     let action = `https://${this.site.domain}/external/reservations`
 
+    let refcode = ''
+    if (url.query && url.query.refcode) {
+      refcode = url.query.refcode
+    }
+
+
+
+
     if (content.length == 0) {
       return (
         <form action={action} method="POST">
@@ -43,12 +52,14 @@ class WaitlistedForm extends Component {
             <label>Email</label>
             <input name="reservation[email]" />
           </div>
+          <input type="hidden" name="reservation[refcode]" value={refcode} />
           <input type="submit" value="Sign Up" />
         </form>
       );
     }
     return (
       <form action={action} method="POST">
+        <input type="hidden" name="reservation[refcode]" value={refcode} />
         <slot />
       </form>
     )

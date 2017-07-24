@@ -1,3 +1,4 @@
+
 ## Waitlisted Components
 
 This is a library of web components to use with custom forms. Custom forms are form you supply on your own site. They can be styled and do not require the use of a modal. These components are designed to work in conjunction with your existing website to make it easy to display waitlist reservation data.
@@ -7,6 +8,9 @@ This is a library of web components to use with custom forms. Custom forms are f
 
 ```
 <script src="dist/index-with-deps.min.js"></script>
+
+
+<waitlisted-total domain="waitlisted.app.waitlisted.dev"></waitlisted-total>
 
 <waitlisted-show>
   <waitlisted-error></waitlisted-error>
@@ -39,4 +43,17 @@ This is a library of web components to use with custom forms. Custom forms are f
 
 `waitlisted-position` will write out the current reservation's position.
 
-`waitlisted-total` will write out the total number of reservations.
+`waitlisted-total` will write out the total number of reservations. If a domain attribute is passed, it will render the total number of reservations even outside of a form.
+
+## Custom Form Fields
+As was stated previously the `waitlisted-form` element can transclude custom fields and content. Below are some examples of this. These values can be placed in the name field of an input tag.
+
+`reservation[email]` - Reservation email address.
+`reservation[name]` - Reservation name.
+`reservation[responses][Example Question?]` - Any custom question. The field name is the prompt the value of the field is the response.
+`reservation[responses][What is your favorite color]`
+
+## Referral code
+Referral codes will automatically be passed into the form when they are present in the URL.
+
+Example: `https://www.url.com/?refcode=abc123`

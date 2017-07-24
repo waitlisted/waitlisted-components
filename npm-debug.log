@@ -1,0 +1,101 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/Users/jmcnally/.nvm/versions/node/v6.3.1/bin/node',
+1 verbose cli   '/Users/jmcnally/.nvm/versions/node/v6.3.1/bin/npm',
+1 verbose cli   'publish' ]
+2 info using npm@3.10.3
+3 info using node@v6.3.1
+4 verbose publish [ '.' ]
+5 silly cache add args [ '.', null ]
+6 verbose cache add spec .
+7 silly cache add parsed spec Result {
+7 silly cache add   raw: '.',
+7 silly cache add   scope: null,
+7 silly cache add   escapedName: null,
+7 silly cache add   name: null,
+7 silly cache add   rawSpec: '.',
+7 silly cache add   spec: '/Users/jmcnally/projects/waitlisted-components',
+7 silly cache add   type: 'directory' }
+8 verbose addLocalDirectory /Users/jmcnally/.npm/waitlisted-components/1.0.0/package.tgz not in flight; packing
+9 verbose correctMkdir /Users/jmcnally/.npm correctMkdir not in flight; initializing
+10 info lifecycle waitlisted-components@1.0.0~prepublish: waitlisted-components@1.0.0
+11 silly lifecycle waitlisted-components@1.0.0~prepublish: no script for prepublish, continuing
+12 verbose tar pack [ '/Users/jmcnally/.npm/waitlisted-components/1.0.0/package.tgz',
+12 verbose tar pack   '/Users/jmcnally/projects/waitlisted-components' ]
+13 verbose tarball /Users/jmcnally/.npm/waitlisted-components/1.0.0/package.tgz
+14 verbose folder /Users/jmcnally/projects/waitlisted-components
+15 verbose addLocalTarball adding from inside cache /Users/jmcnally/.npm/waitlisted-components/1.0.0/package.tgz
+16 verbose correctMkdir /Users/jmcnally/.npm correctMkdir not in flight; initializing
+17 silly cache afterAdd waitlisted-components@1.0.0
+18 verbose afterAdd /Users/jmcnally/.npm/waitlisted-components/1.0.0/package/package.json not in flight; writing
+19 verbose correctMkdir /Users/jmcnally/.npm correctMkdir not in flight; initializing
+20 verbose afterAdd /Users/jmcnally/.npm/waitlisted-components/1.0.0/package/package.json written
+21 silly publish { name: 'waitlisted-components',
+21 silly publish   description: 'Components for making waitlisted forms.',
+21 silly publish   version: '1.0.0',
+21 silly publish   main: 'index.js',
+21 silly publish   repository:
+21 silly publish    { type: 'git',
+21 silly publish      url: 'git+ssh://git@github.com/waitlisted/waitlisted-components.git' },
+21 silly publish   author: { name: 'justin@waitlisted.co' },
+21 silly publish   license: 'MIT',
+21 silly publish   dependencies:
+21 silly publish    { babel: '^6.23.0',
+21 silly publish      'babel-cli': '^6.23.0',
+21 silly publish      'babel-core': '^6.23.1',
+21 silly publish      'babel-loader': '^6.3.2',
+21 silly publish      'babel-plugin-transform-runtime': '^6.23.0',
+21 silly publish      'babel-polyfill': '^6.23.0',
+21 silly publish      'babel-preset-es2015': '^6.22.0',
+21 silly publish      'babel-preset-es2017': '^6.22.0',
+21 silly publish      'babel-preset-stage-0': '^6.22.0',
+21 silly publish      'babel-preset-stage-2': '^6.22.0',
+21 silly publish      'babel-preset-stage-3': '^6.22.0',
+21 silly publish      skatejs: '^4.6.6',
+21 silly publish      'skatejs-build': '^12.2.0',
+21 silly publish      'skatejs-web-components': '^5.2.0',
+21 silly publish      'url-parse': '^1.1.8',
+21 silly publish      'whatwg-fetch': '^2.0.2' },
+21 silly publish   readme: '\n## Waitlisted Components\n\nThis is a library of web components to use with custom forms. Custom forms are form you supply on your own site. They can be styled and do not require the use of a modal. These components are designed to work in conjunction with your existing website to make it easy to display waitlist reservation data.\n\n\n###Example Usage\n\n```\n<script src="dist/index-with-deps.min.js"></script>\n\n\n<waitlisted-total domain="waitlisted.app.waitlisted.dev"></waitlisted-total>\n\n<waitlisted-show>\n  <waitlisted-error></waitlisted-error>\n  <waitlisted-form domain="waitlisted.app.waitlisted.dev"></waitlisted-form>\n</waitlisted-show>\n\n<waitlisted-show submitted>\n  <waitlisted-reflink>\n  Link to share!\n  </waitlisted-reflink>\n  <waitlisted-refurl></waitlisted-refurl>\n  <waitlisted-refurl as="input"></waitlisted-refurl>\n\n  <waitlisted-position></waitlisted-position> of <waitlisted-total></waitlisted-total>\n</waitlisted-show>\n```\n\n### Components\n\n`waitlisted-show` - Conditionally shows content based on if the form has already been submitted successfully. You may supply the `submitted` attribute, to show content of submit, and omit it for pre-submit.\n\n`waitlisted-error` will write out any errors in the submission process, example \'Email must be valid.\'\n\n`waitlisted-form` this is write out a simple form with name and email fields, along with a submit button. You should pass the domain attribute to it. You may optionally replace the form\'s inner content by passing your own. Form fields are passed as `<input name="reservation[email]" />` or `<input name="reservation[name]" />`\n\n\n`waitlisted-reflink` can be wrapped around any content and will link that content to the referral url.\n\n`waitlisted-refurl` will write out the referral url. You may pass the `as` attribute, to output the url in a text input, this makes it easy to copy and paste.\n\n`waitlisted-position` will write out the current reservation\'s position.\n\n`waitlisted-total` will write out the total number of reservations. If a domain attribute is passed, it will render the total number of reservations even outside of a form.\n\n## Custom Form Fields\nAs was stated previously the `waitlisted-form` element can transclude custom fields and content. Below are some examples of this. These values can be placed in the name field of an input tag.\n\n`reservation[email]` - Reservation email address.\n`reservation[name]` - Reservation name.\n`reservation[responses][Example Question?]` - Any custom question. The field name is the prompt the value of the field is the response.\n`reservation[responses][What is your favorite color]`\n\n## Referral code\nReferral codes will automatically be passed into the form when they are present in the URL.\n\nExample: `https://www.url.com/?refcode=abc123`\n',
+21 silly publish   readmeFilename: 'README.md',
+21 silly publish   gitHead: 'e8bb7189b3995f25e5e5028bbb607ee177169ca2',
+21 silly publish   bugs: { url: 'https://github.com/waitlisted/waitlisted-components/issues' },
+21 silly publish   homepage: 'https://github.com/waitlisted/waitlisted-components#readme',
+21 silly publish   _id: 'waitlisted-components@1.0.0',
+21 silly publish   scripts: {},
+21 silly publish   _shasum: '1250bd84304adbe845a707c20508a68f54d80e62',
+21 silly publish   _from: '.' }
+22 verbose getPublishConfig undefined
+23 silly mapToRegistry name waitlisted-components
+24 silly mapToRegistry using default registry
+25 silly mapToRegistry registry https://registry.npmjs.org/
+26 silly mapToRegistry data Result {
+26 silly mapToRegistry   raw: 'waitlisted-components',
+26 silly mapToRegistry   scope: null,
+26 silly mapToRegistry   escapedName: 'waitlisted-components',
+26 silly mapToRegistry   name: 'waitlisted-components',
+26 silly mapToRegistry   rawSpec: '',
+26 silly mapToRegistry   spec: 'latest',
+26 silly mapToRegistry   type: 'tag' }
+27 silly mapToRegistry uri https://registry.npmjs.org/waitlisted-components
+28 verbose publish registryBase https://registry.npmjs.org/
+29 silly publish uploading /Users/jmcnally/.npm/waitlisted-components/1.0.0/package.tgz
+30 verbose stack Error: auth required for publishing
+30 verbose stack     at CachingRegistryClient.publish (/Users/jmcnally/.nvm/versions/node/v6.3.1/lib/node_modules/npm/node_modules/npm-registry-client/lib/publish.js:30:14)
+30 verbose stack     at /Users/jmcnally/.nvm/versions/node/v6.3.1/lib/node_modules/npm/lib/publish.js:138:14
+30 verbose stack     at mapToRegistry (/Users/jmcnally/.nvm/versions/node/v6.3.1/lib/node_modules/npm/lib/utils/map-to-registry.js:62:3)
+30 verbose stack     at publish_ (/Users/jmcnally/.nvm/versions/node/v6.3.1/lib/node_modules/npm/lib/publish.js:107:3)
+30 verbose stack     at Array.<anonymous> (/Users/jmcnally/.nvm/versions/node/v6.3.1/lib/node_modules/npm/node_modules/slide/lib/bind-actor.js:15:8)
+30 verbose stack     at LOOP (/Users/jmcnally/.nvm/versions/node/v6.3.1/lib/node_modules/npm/node_modules/slide/lib/chain.js:15:14)
+30 verbose stack     at LOOP (/Users/jmcnally/.nvm/versions/node/v6.3.1/lib/node_modules/npm/node_modules/slide/lib/chain.js:14:28)
+30 verbose stack     at chain (/Users/jmcnally/.nvm/versions/node/v6.3.1/lib/node_modules/npm/node_modules/slide/lib/chain.js:20:5)
+30 verbose stack     at /Users/jmcnally/.nvm/versions/node/v6.3.1/lib/node_modules/npm/lib/publish.js:73:5
+30 verbose stack     at RES (/Users/jmcnally/.nvm/versions/node/v6.3.1/lib/node_modules/npm/node_modules/inflight/inflight.js:23:14)
+31 verbose cwd /Users/jmcnally/projects/waitlisted-components
+32 error Darwin 16.6.0
+33 error argv "/Users/jmcnally/.nvm/versions/node/v6.3.1/bin/node" "/Users/jmcnally/.nvm/versions/node/v6.3.1/bin/npm" "publish"
+34 error node v6.3.1
+35 error npm  v3.10.3
+36 error code ENEEDAUTH
+37 error need auth auth required for publishing
+38 error need auth You need to authorize this machine using `npm adduser`
+39 verbose exit [ 1, true ]
