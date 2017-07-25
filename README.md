@@ -3,8 +3,18 @@
 
 This is a library of web components to use with custom forms. Custom forms are form you supply on your own site. They can be styled and do not require the use of a modal. These components are designed to work in conjunction with your existing website to make it easy to display waitlist reservation data.
 
+### Installation
 
-###Example Usage
+You can build the components or clone them from this git repo, but the simplest way is to use our hosted copy by placing
+
+```
+<script src="//storage.googleapis.com/waitlisted-components/index-with-deps.min.js"></script>
+```
+
+in your HTML.
+
+
+### Example Usage
 
 ```
 <script src="dist/index-with-deps.min.js"></script>
