@@ -23,6 +23,12 @@ class WaitlistedForm extends Component {
     super.disconnectedCallback();
   }
 
+  clickHandler(e) {
+    if (e.target.tagName == 'WAITLISTED-SUBMIT'  || e.target.getAttribute('submit') != null || e.target.getAttribute('type') === 'submit') {
+      e.currentTarget.submit();
+    }
+  }
+
   renderCallback () {
     let url = UrlParse(document.location, true)
     let content = this.innerHTML.trim()
@@ -58,7 +64,7 @@ class WaitlistedForm extends Component {
       );
     }
     return (
-      <form action={action} method="POST">
+      <form onClick={this.clickHandler} action={action} method="POST">
         <input type="hidden" name="reservation[refcode]" value={refcode} />
         <slot />
       </form>

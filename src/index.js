@@ -8,6 +8,7 @@ import WaitlistedReflink from './components/reflink'
 import WaitlistedRefurl from './components/refurl'
 import WaitlistedTotal from './components/total'
 import WaitlistedShow from './components/show'
+import WaitlistedSubmit from './components/submit'
 
 
 
@@ -18,3 +19,4 @@ window.customElements.define(WaitlistedReflink.is, WaitlistedReflink);
 window.customElements.define(WaitlistedRefurl.is, WaitlistedRefurl);
 window.customElements.define(WaitlistedTotal.is, WaitlistedTotal);
 window.customElements.define(WaitlistedShow.is, WaitlistedShow);
+window.customElements.define(WaitlistedSubmit.is, WaitlistedSubmit);

@@ -36,6 +36,7 @@ This is a library of web components to use with custom forms. Custom forms are f
 
 `waitlisted-form` this is write out a simple form with name and email fields, along with a submit button. You should pass the domain attribute to it. You may optionally replace the form's inner content by passing your own. Form fields are passed as `<input name="reservation[email]" />` or `<input name="reservation[name]" />`
 
+`waitlisted-submit` will submit the form.
 
 `waitlisted-reflink` can be wrapped around any content and will link that content to the referral url.
 
